@@ -52,6 +52,9 @@ public class PixelCraft {
             else if (converterName.equals("Sepia")) {
                 outputImage = Sepia.toSepia(inputImage);
             }
+            else if (converterName.equals("Pixelate")) {
+                outputImage = Pixelate.toPixelate(inputImage);
+            }
             else {
                 System.out.println("Error: Unknown converter name.");
                 System.exit(1);
