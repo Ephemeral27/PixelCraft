@@ -9,7 +9,11 @@ public class Blur extends Converter {
 
     public static BufferedImage toBlur(BufferedImage img) {
 
-        BufferedImage blurImage = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        BufferedImage blurImage = new BufferedImage(
+                img.getWidth(),
+                img.getHeight(),
+                BufferedImage.TYPE_INT_ARGB
+        );
 
         for (int y = 0; y < img.getHeight(); y++) {
             for (int x = 0; x < img.getWidth(); x++) {
@@ -20,13 +24,10 @@ public class Blur extends Converter {
                 int b = 0;
                 int count = 0;
 
-                // loop through surrounding pixels (3x3)
-                for (int i = y - 1; i <= y + 1; i++) {
-                    for (int j = x - 1; j <= x + 1; j++) {
+                for (int i = y - 7; i <= y + 7; i++) {
+                    for (int j = x - 7; j <= x + 7; j++) {
 
-                        // check boundaries
                         if (j >= 0 && j < img.getWidth() && i >= 0 && i < img.getHeight()) {
-
                             int pixel = img.getRGB(j, i);
                             ARGB color = new ARGB(pixel);
 
@@ -34,13 +35,11 @@ public class Blur extends Converter {
                             r += color.red;
                             g += color.green;
                             b += color.blue;
-
                             count++;
                         }
                     }
                 }
 
-                // average values
                 ARGB blurColor = new ARGB(
                         alpha / count,
                         r / count,
