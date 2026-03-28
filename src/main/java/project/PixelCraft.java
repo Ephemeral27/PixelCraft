@@ -46,6 +46,9 @@ public class PixelCraft {
             else if (converterName.equals("Blur")) {
                 outputImage = Blur.toBlur(inputImage);
             }
+            else if (converterName.equals("Flip")) {
+                outputImage = Flip.toFlip(inputImage);
+            }
             else {
                 System.out.println("Error: Unknown converter name.");
                 System.exit(1);
