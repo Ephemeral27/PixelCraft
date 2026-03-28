@@ -22,7 +22,7 @@ public class PixelCraft {
 
         // Ensure that a converter name and a filename has been provided
         if (args.length < 2) {
-            System.out.println("Usage: java -cp \"path/to/classes\" PixelCraft <ConverterName/Greyscale/Invert/Rotate/Blur> <image_file.png>");
+            System.out.println("Usage: java -cp \"path/to/classes\" PixelCraft <ConverterName/Greyscale/Invert/Rotate/Blur/Flip/Pixelate> <image_file.png>");
             System.exit(1);
         }
 
@@ -48,6 +48,9 @@ public class PixelCraft {
             }
             else if (converterName.equals("Flip")) {
                 outputImage = Flip.toFlip(inputImage);
+            }
+            else if (converterName.equals("Pixelate")) {
+                outputImage = Pixelate.toPixelate(inputImage);
             }
             else {
                 System.out.println("Error: Unknown converter name.");
