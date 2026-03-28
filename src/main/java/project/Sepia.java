@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class Sepia extends Converter{
 
-    public static BufferedImage toGreyscale (BufferedImage img){
+    public static BufferedImage toSepia (BufferedImage img){
         BufferedImage result = new BufferedImage(
             img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_ARGB);
         //int rgb=0, r=0, g=0, b=0;
